@@ -3,12 +3,13 @@ all:
 	javac @sources.txt
 
 clean:
-	rm */*.class sources.txt
+	rm */*.class *.txt
 
 re:clean
 	make all
 
-run:re
-	java simulator.Simulator ../scenarios/scenario2.txt
+run:all
+	java simulator.Simulator ../scenarios/scenario.txt
+	cat -e simulation.txt
 
 .PHONY: all clean re run

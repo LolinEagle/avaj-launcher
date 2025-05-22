@@ -8,6 +8,14 @@ import tower.*;
 import exception.*;
 
 public class Simulator{
+	private static PrintWriter	writer = null;
+
+	public static void log(String message){
+		if (writer != null){
+			writer.println(message);
+		}
+    }
+
 	public static void main(String[] args){
 		if (args.length != 1){
 			System.out.println("Usage: java Simulator scenario.txt");
@@ -15,12 +23,17 @@ public class Simulator{
 		}
 
 		try{
+			writer = new PrintWriter(new FileWriter("simulation.txt"));
 			simulate(args[0]);
 		} catch (InvalidScenarioException e){
 			System.out.println("Error: " + e.getMessage());
 		} catch (IOException e){
 			System.out.println("Error reading file: " + e.getMessage());
-		}
+		} finally {
+            if (writer != null){
+                writer.close();
+            }
+        }
 	}
 
 	private static void simulate(String fileName) throws IOException, InvalidScenarioException{

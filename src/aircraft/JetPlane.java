@@ -1,5 +1,6 @@
 package aircraft;
 
+import simulator.Simulator;
 import tower.WeatherTower;
 import weather.Coordinates;
 
@@ -32,18 +33,18 @@ public class JetPlane extends Aircraft implements Flyable{
 				message += "OMG! Winter is coming!";
 				break;
 		}
-		System.out.println(message);
+		Simulator.log(message);
 
 		if (coordinates.getHeight() <= 0){
-			System.out.println(getLogInfo() + " landing.");
+			Simulator.log(getLogInfo() + " landing.");
 			weatherTower.unregister(this);
-			System.out.println("Tower says: " + getLogInfo() + " unregistered from weather tower.");
+			Simulator.log("Tower says: " + getLogInfo() + " unregistered from weather tower.");
 		}
 	}
 
 	public void registerTower(WeatherTower weatherTower){
 		this.weatherTower = weatherTower;
 		weatherTower.register(this);
-		System.out.println("Tower says: " + getLogInfo() + " registered to weather tower.");
+		Simulator.log("Tower says: " + getLogInfo() + " registered to weather tower.");
 	}
 }
