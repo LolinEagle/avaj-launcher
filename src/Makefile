@@ -12,4 +12,4 @@ run:all
 	java simulator.Simulator ../scenarios/scenario.txt
 	cat -e simulation.txt
 
-.PHONY: all clean re run
+.PHONY:all clean re run

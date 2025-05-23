@@ -13,9 +13,9 @@ public class WeatherProvider{
 		return weatherProvider;
 	}
 
-	public String getCurrentWeather(Coordinates coordinates){
+	public String getCurrentWeather(Coordinates coord){
 		// Simple weather generation based on coordinates
-		int sum = coordinates.getLongitude() + coordinates.getLatitude() + coordinates.getHeight();
-		return weather[sum % 4];
+		int	i = coord.getLongitude() + coord.getLatitude() + coord.getHeight();
+		return weather[i % 4];
 	}
 }

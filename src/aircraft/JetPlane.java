@@ -13,7 +13,7 @@ public class JetPlane extends Aircraft implements Flyable{
 
 	public void updateConditions(){
 		String weather = weatherTower.getWeather(this.coordinates);
-		String message = getLogInfo() + ": ";
+		String message = getLogInfo() + " : ";
 
 		switch (weather){
 			case "SUN":
@@ -38,13 +38,15 @@ public class JetPlane extends Aircraft implements Flyable{
 		if (coordinates.getHeight() <= 0){
 			Simulator.log(getLogInfo() + " landing.");
 			weatherTower.unregister(this);
-			Simulator.log("Tower says: " + getLogInfo() + " unregistered from weather tower.");
+			Simulator.log("Tower says : " + getLogInfo() +
+			" unregistered from weather tower.");
 		}
 	}
 
 	public void registerTower(WeatherTower weatherTower){
 		this.weatherTower = weatherTower;
 		weatherTower.register(this);
-		Simulator.log("Tower says: " + getLogInfo() + " registered to weather tower.");
+		Simulator.log("Tower says : " + getLogInfo() +
+		" registered to weather tower.");
 	}
 }
