@@ -1,13 +1,21 @@
 package aircraft;
 
 import weather.Coordinates;
-import tower.WeatherTower;
 
 public class AircraftFactory{
-	public static Flyable newAircraft(String type, String name, int longitude,
-	int latitude, int height){
-		Coordinates coordinates = new Coordinates(longitude, latitude, height);
-		
+	private static AircraftFactory	instance = null;
+	
+	private	AircraftFactory(){}
+	
+	public static AircraftFactory	getInstance(){
+		if (instance == null){
+			instance = new AircraftFactory();
+		}
+		return instance;
+	}
+	
+	public Flyable	newAircraft(String type, String name,
+	Coordinates coordinates){
 		switch (type.toLowerCase()){
 			case "helicopter":
 				return new Helicopter(name, coordinates);

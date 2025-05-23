@@ -4,8 +4,9 @@ import java.io.*;
 import java.util.*;
 
 import aircraft.*;
-import tower.*;
 import exception.*;
+import tower.*;
+import weather.*;
 
 public class Simulator{
 	public static final String	ERROR1 = "Simulation cycles must be positive";
@@ -42,12 +43,10 @@ public class Simulator{
 		}
 	}
 
-	private static void simulate(String fileName)
+	private static void	simulate(String fileName)
 	throws IOException, InvalidScenarioException{
 		BufferedReader	reader = new BufferedReader(new FileReader(fileName));
-		
-		// Read simulation cycles
-		String	line = reader.readLine();
+		String			line = reader.readLine();// Read simulation cycles
 		if (line == null){
 			throw new InvalidScenarioException("Empty scenario file");
 		}
@@ -87,8 +86,9 @@ public class Simulator{
 					throw new InvalidScenarioException(ERROR3 + line);
 				}
 
-				Flyable	aircraft = AircraftFactory.newAircraft(type, name,
-				longitude, latitude, height);
+				Coordinates	co = new Coordinates(longitude, latitude, height);
+				Flyable	aircraft = AircraftFactory.getInstance().newAircraft(
+				type, name, co);
 				aircraft.registerTower(weatherTower);
 				aircrafts.add(aircraft);
 			} catch (NumberFormatException e){

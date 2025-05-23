@@ -4,7 +4,7 @@ public enum WeatherType{
 	SUN, RAIN, FOG, SNOW;
 
 	@Override
-	public String toString(){
+	public String	toString(){
 		return this.name();
 	}
 }

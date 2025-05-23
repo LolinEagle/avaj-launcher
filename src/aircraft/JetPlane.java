@@ -4,16 +4,16 @@ import simulator.Simulator;
 import tower.WeatherTower;
 import weather.Coordinates;
 
-public class JetPlane extends Aircraft implements Flyable{
-	private WeatherTower weatherTower;
+public class JetPlane extends Aircraft{
+	private WeatherTower	weatherTower;
 
-	public JetPlane(String name, Coordinates coordinates){
+	public	JetPlane(String name, Coordinates coordinates){
 		super(name, coordinates);
 	}
 
-	public void updateConditions(){
-		String weather = weatherTower.getWeather(this.coordinates);
-		String message = getLogInfo() + " : ";
+	public void	updateConditions(){
+		String	weather = weatherTower.getWeather(this.coordinates);
+		String	message = getLogInfo() + " : ";
 
 		switch (weather){
 			case "SUN":
@@ -43,7 +43,7 @@ public class JetPlane extends Aircraft implements Flyable{
 		}
 	}
 
-	public void registerTower(WeatherTower weatherTower){
+	public void	registerTower(WeatherTower weatherTower){
 		this.weatherTower = weatherTower;
 		weatherTower.register(this);
 		Simulator.log("Tower says : " + getLogInfo() +
