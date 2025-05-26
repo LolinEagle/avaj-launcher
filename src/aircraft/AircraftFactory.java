@@ -18,11 +18,11 @@ public class AircraftFactory{
 	Coordinates coordinates){
 		switch (type.toLowerCase()){
 			case "helicopter":
-				return new Helicopter(name, coordinates);
+				return new Helicopter(0, name, coordinates);
 			case "jetplane":
-				return new JetPlane(name, coordinates);
+				return new JetPlane(0, name, coordinates);
 			case "baloon":
-				return new Baloon(name, coordinates);
+				return new Baloon(0, name, coordinates);
 			default:
 				throw new IllegalArgumentException("Unknown type : " + type);
 		}

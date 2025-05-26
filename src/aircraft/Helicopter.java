@@ -7,8 +7,8 @@ import weather.Coordinates;
 public class Helicopter extends Aircraft{
 	private WeatherTower	weatherTower;
 
-	public	Helicopter(String name, Coordinates coordinates){
-		super(name, coordinates);
+	public	Helicopter(long id, String name, Coordinates coordinates){
+		super(id, name, coordinates);
 	}
 
 	public void	updateConditions(){

@@ -7,8 +7,8 @@ import weather.Coordinates;
 public class Baloon extends Aircraft{
 	private WeatherTower	weatherTower;
 
-	public	Baloon(String name, Coordinates coordinates){
-		super(name, coordinates);
+	public	Baloon(long id, String name, Coordinates coordinates){
+		super(id, name, coordinates);
 	}
 
 	public void	updateConditions(){

@@ -8,14 +8,19 @@ public abstract class Aircraft extends Flyable{
 	protected Coordinates	coordinates;
 	private static long		idCounter = 0;
 
-	protected	Aircraft(String name, Coordinates coordinates){
-		this.id = nextId();
+	protected	Aircraft(long id, String name, Coordinates coordinates){
+		this.id = nextId(id);
 		this.name = name;
 		this.coordinates = coordinates;
 	}
 
-	private long	nextId(){
-		return ++idCounter;
+	private long	nextId(long id){
+		if (id > idCounter){
+			idCounter = id;
+			return id;
+		} else {
+			return ++idCounter;
+		}
 	}
 
 	protected String	getLogInfo(){

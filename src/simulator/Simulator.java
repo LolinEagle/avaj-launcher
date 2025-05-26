@@ -9,6 +9,7 @@ import tower.*;
 import weather.*;
 
 public class Simulator{
+	public static final String	LINE = "___________________________________";
 	public static final String	ERROR1 = "Simulation cycles must be positive";
 	public static final String	ERROR2 = "Invalid aircraft format : ";
 	public static final String	ERROR3 = "Invalid coordinates for aircraft : ";
@@ -100,6 +101,7 @@ public class Simulator{
 
 		// Run simulation
 		for (int i = 0; i < cycles; i++){
+			log(LINE + " Cycle " + (i + 1) + ' ' + LINE);
 			weatherTower.changeWeather();
 		}
 
